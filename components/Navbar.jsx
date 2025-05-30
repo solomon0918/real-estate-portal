@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import logo from '@/assets/images/logo-white.png';
+import newLogo from '@/assets/images/new-logo.png';
 import profileDefault from '@/assets/images/profile.png';
 import { FaGoogle } from 'react-icons/fa';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
@@ -28,7 +28,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className='bg-blue-700 border-b border-blue-500'>
+    <nav className='border-b'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div className='relative flex h-20 items-center justify-between'>
           <div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
@@ -63,37 +63,49 @@ const Navbar = () => {
           <div className='flex flex-1 items-center justify-center md:items-stretch md:justify-start'>
             {/* <!-- Logo --> */}
             <Link className='flex flex-shrink-0 items-center' href='/'>
-              <Image className='h-10 w-auto' src={logo} alt='PropertyPulse' />
-
-              <span className='hidden md:block text-white text-2xl font-bold ml-2'>
-                PropertyPulse
-              </span>
+              <Image className='h-10 w-auto' src={newLogo} alt='PropertyPulse' />
             </Link>
             {/* <!-- Desktop Menu Hidden below md screens --> */}
             <div className='hidden md:ml-6 md:block'>
-              <div className='flex space-x-2'>
+              <div className='flex space-x-6'>
                 <Link
                   href='/'
                   className={`${
-                    pathname === '/' ? 'bg-black' : ''
-                  } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                    pathname === '/' ? 'bg-primary-light/55 text-primary' : 'text-text-primary'
+                  } hover:bg-primary-light/55 hover:text-primary rounded-full px-6 py-2 font-medium`}
                 >
                   Home
                 </Link>
                 <Link
                   href='/properties'
                   className={`${
-                    pathname === '/properties' ? 'bg-black' : ''
-                  } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                    pathname === '/properties' ? 'bg-primary-light/55 text-primary' : 'text-text-primary'
+                  } hover:bg-primary-light/55 hover:text-primary rounded-full px-6 py-2 font-medium`}
                 >
                   Properties
+                </Link>
+                <Link
+                  href='/about'
+                  className={`${
+                    pathname === '/about' ? 'bg-primary-light/55 text-primary' : 'text-text-primary'
+                  } hover:bg-primary-light/55 hover:text-primary rounded-full px-6 py-2 font-medium`}
+                >
+                  About
+                </Link>
+                <Link
+                  href='/contact'
+                  className={`${
+                    pathname === '/contact' ? 'bg-primary-light/55 text-primary' : 'text-text-primary'
+                  } hover:bg-primary-light/55 hover:text-primary rounded-full px-6 py-2 font-medium`}
+                >
+                  Contact
                 </Link>
                 {session && (
                   <Link
                     href='/properties/add'
                     className={`${
-                      pathname === '/properties/add' ? 'bg-black' : ''
-                    } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                      pathname === '/properties/add' ? 'bg-primary-light/55 text-primary' : 'text-text-primary'
+                    } hover:bg-primary-light/55 hover:text-primary rounded-full px-6 py-2 font-medium`}
                   >
                     Add Property
                   </Link>
@@ -195,7 +207,7 @@ const Navbar = () => {
                       Your Profile
                     </Link>
                     <Link
-                      href='/saved-properties'
+                      href='/properties/saved'
                       className='block px-4 py-2 text-sm text-gray-700'
                       role='menuitem'
                       tabIndex='-1'
