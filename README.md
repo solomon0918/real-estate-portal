@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Figma Design: [Real Estate Portal](https://www.figma.com/design/wvrjqdWnUI3UdJcm0rrn8y/Real-Estate-Property-Portal-Site?node-id=0-1&t=d4UgEDAmZOjtAIav-1)
+
 First, run the development server:
 
 ```bash
